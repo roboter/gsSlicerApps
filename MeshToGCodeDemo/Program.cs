@@ -38,12 +38,11 @@ namespace MeshToGCodeDemo
             PlanarSliceStack slices = slicer.Compute();
 
             // run print generator
-            SingleMaterialFFFPrintGenerator printGen =
-                new SingleMaterialFFFPrintGenerator(meshes, slices, settings);
+            SingleMaterialFFFPrintGenerator printGen = new SingleMaterialFFFPrintGenerator(meshes, slices, settings);
             if ( printGen.Generate() ) {
                 // export gcode
                 GCodeFile gcode = printGen.Result;
-                using (StreamWriter w = new StreamWriter("c:\\demo\\cone.gcode")) {
+                using (StreamWriter w = new StreamWriter("cone.gcode")) {
                     StandardGCodeWriter writer = new StandardGCodeWriter();
                     writer.WriteFile(gcode, w);
                 }
