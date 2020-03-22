@@ -9,7 +9,7 @@ namespace GeneratedPathsDemo
 {
     class Program
     {
-		static string OUT_PATH = Util.IsRunningOnMono() ? "../../../sample_output/" : "c:\\demo\\";
+		static string OUT_PATH = Util.IsRunningOnMono() ? "../../../sample_output/" : "";
 
         static void Main(string[] args)
         {
@@ -284,13 +284,6 @@ namespace GeneratedPathsDemo
             compiler.AppendPaths(builder.Paths, settings);
         }
 
-
-
-
-
-
-
-
         static void make_tip(IGCodeAssembler iassember, ICNCCompiler icompiler)
         {
             BaseDepositionAssembler assembler = iassember as BaseDepositionAssembler;
@@ -299,8 +292,5 @@ namespace GeneratedPathsDemo
             assembler.AppendDwell(500);
             assembler.EndRetract(assembler.NozzlePosition, 9999);
         }
-
-
-
     }
 }
